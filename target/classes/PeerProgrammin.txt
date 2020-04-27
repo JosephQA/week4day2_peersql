@@ -1,0 +1,34 @@
+Peer Programming:
+
+Implement a class that can Create Read Update and Delete (CRUD) entries from your database dynamically
+
+The connection must be established in a constructor, Be it with passed variales or a hard coded connection
+
+The class should implement at least 4 methods demontrating each aspect of CRUD
+Each method should take variables as arguments and use them to construct the query statement
+
+For example, For Update, The method takes in a userID and all the data needed for a new user.
+The method then uses string concatination to construct the sql query;
+
+
+public void updateUser(int userID, String newUserName) {
+	String query = "UPDATE users SET userID =" + userID + ", userName =" + newUserName + "WHERE userID =" + "userID";
+	etc.
+	etc.
+}
+
+
+
+
+Extension, fully implement CRUD for each table in the following database structure;
+
+users:                                        products:                                      orders:
+userID - Int PrimaryKey, AutoIncrement        productID - Int PrimaryKey, AutoIncrement      orderID - Int PrimaryKey, AutoIncrement
+userName - varChar, Unique                    productName - varChar                          productID - Int ForeignKey
+password - varChar                            price - Double                                 userID - Int ForeignKey
+firstName - varChar                           stock - int                                    quantity - Int
+lastName - varChar                                                                           price - Double
+
+
+
+Note, Deleting a User or Product entry will require you to first remove all entries containing that ForeignKey from the orders table.
